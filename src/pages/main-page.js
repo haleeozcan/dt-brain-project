@@ -26,6 +26,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Link from "@material-ui/core/Link";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -106,6 +107,7 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 700,
     },
 }));
+
 export default function MainPage() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState('panel1');
@@ -162,7 +164,10 @@ export default function MainPage() {
                                             <Button variant="outlined" color="primary">Kullanıcı Durumu</Button>
                                         </StyledTableCell>
                                         <StyledTableCell align="right">
-                                            <Button variant="outlined" color="primary">Kullanıcıya Git</Button>
+                                            <a href="user.js">
+                                                <button> Kullanıcıya Git</button>
+                                            </a>
+
                                         </StyledTableCell>
                                     </StyledTableRow>
                                 ))}
@@ -209,7 +214,8 @@ export default function MainPage() {
                                             <Button variant="outlined" color="primary">Kullanıcı Durumu</Button>
                                         </StyledTableCell>
                                         <StyledTableCell align="right">
-                                            <Button variant="outlined" color="primary">Kullanıcıya Git</Button>
+                                            <Button variant="outlined" color="primary" href="/user">Kullanıcıya
+                                                Git</Button>
                                         </StyledTableCell>
                                     </StyledTableRow>
                                 ))}
