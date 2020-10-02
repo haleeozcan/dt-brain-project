@@ -27,6 +27,15 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Link from "@material-ui/core/Link";
+import Dialog from "@material-ui/core/Dialog/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent/DialogContent";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel/InputLabel";
+import Select from "@material-ui/core/Select/Select";
+import TextField from "@material-ui/core/TextField/TextField";
+import DialogActions from "@material-ui/core/DialogActions/DialogActions";
+import AddUser from "./add-user.js";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -111,6 +120,22 @@ const useStyles = makeStyles((theme) => ({
 export default function MainPage() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState('panel1');
+    const [open, setOpen] = React.useState(false);
+    const [cihaz, setCihaz] = React.useState('');
+
+    const handleOnChange = (event) => {
+        setCihaz(event.target.value);
+    };
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
 
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
@@ -122,9 +147,9 @@ export default function MainPage() {
             <Button variant="outlined" color="primary">
                 Kullanıcı Grubu Oluştur
             </Button>
-            <Button variant="outlined" color="secondary">
-                Kullanıcı Oluştur
-            </Button>
+
+        <AddUser/>
+
             <Typography variant="h5" align="left">Kullanıcı Grupları </Typography>
             <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
@@ -161,7 +186,40 @@ export default function MainPage() {
                                             <Button variant="outlined" color="primary">Kullanıcıyı Kaldır</Button>
                                         </StyledTableCell>
                                         <StyledTableCell align="right">
-                                            <Button variant="outlined" color="primary">Kullanıcı Durumu</Button>
+                                            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                                                Kullanıcı Durumu
+                                            </Button>
+                                            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                                                <DialogTitle id="form-dialog-title">Cihaz Ekle</DialogTitle>
+                                                <DialogContent>
+                                                    <FormControl className={classes.formControl}>
+                                                        <InputLabel id="demo-simple-select-label">Cihaz Türü</InputLabel>
+                                                        <Select
+                                                            labelId="demo-simple-select-label"
+                                                            id="demo-simple-select"
+                                                            value={cihaz}
+                                                            onChange={handleOnChange}
+                                                        >
+                                                            <MenuItem value={10}>Cihaz #1</MenuItem>
+                                                            <MenuItem value={20}>Cihaz #2</MenuItem>
+                                                            <MenuItem value={30}>Cihaz #3</MenuItem>
+                                                        </Select>
+                                                    </FormControl>
+                                                    <form className={classes.textField} noValidate autoComplete="off">
+                                                        <TextField id="standard-basic" label="Cihaz İsmi"/>
+                                                    </form>
+                                                    <form className={classes.textField} noValidate autoComplete="off">
+                                                        <TextField id="standard-basic" label="ID"/>
+                                                        <TextField id="standard-basic" label="UID"/>
+                                                    </form>
+
+                                                </DialogContent>
+                                                <DialogActions>
+                                                    <Button onClick={handleClose} color="primary">
+                                                        Ekle
+                                                    </Button>
+                                                </DialogActions>
+                                            </Dialog>
                                         </StyledTableCell>
                                         <StyledTableCell align="right">
                                             <a href="user.js">
