@@ -36,6 +36,7 @@ import Select from "@material-ui/core/Select/Select";
 import TextField from "@material-ui/core/TextField/TextField";
 import DialogActions from "@material-ui/core/DialogActions/DialogActions";
 import AddUser from "./add-user.js";
+import AddUserGroup from "./add-user-group.js";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -136,7 +137,6 @@ export default function MainPage() {
     };
 
 
-
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
@@ -144,11 +144,8 @@ export default function MainPage() {
         <div className={classes.root}>
             <Typography variant="h2">Kullanıcılar </Typography>
             <Typography variant="h5">Kullanıcılar Durum Listesi </Typography>
-            <Button variant="outlined" color="primary">
-                Kullanıcı Grubu Oluştur
-            </Button>
-
-        <AddUser/>
+            <AddUserGroup/>
+            <AddUser/>
 
             <Typography variant="h5" align="left">Kullanıcı Grupları </Typography>
             <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -189,11 +186,13 @@ export default function MainPage() {
                                             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                                                 Kullanıcı Durumu
                                             </Button>
-                                            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                                            <Dialog open={open} onClose={handleClose}
+                                                    aria-labelledby="form-dialog-title">
                                                 <DialogTitle id="form-dialog-title">Cihaz Ekle</DialogTitle>
                                                 <DialogContent>
                                                     <FormControl className={classes.formControl}>
-                                                        <InputLabel id="demo-simple-select-label">Cihaz Türü</InputLabel>
+                                                        <InputLabel id="demo-simple-select-label">Cihaz
+                                                            Türü</InputLabel>
                                                         <Select
                                                             labelId="demo-simple-select-label"
                                                             id="demo-simple-select"
