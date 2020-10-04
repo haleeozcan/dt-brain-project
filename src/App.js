@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './Header.js';
+import Footer from './Footer.js';
 import User from './pages/user.js';
 import MainPage from "./pages/main-page";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -17,6 +17,7 @@ function App() {
                       <Route path="/user" exact component={User} />
                   </Switch>
               </div>
+              <Footer/>
           </div>
       </Router>
 

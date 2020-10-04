@@ -16,6 +16,7 @@ import Avatar from "@material-ui/core/Avatar";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        backgroundColor: "#fff"
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -59,9 +60,9 @@ export default function MenuAppBar() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.root}>
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <IconButton edge="start" className={classes.menuButton}aria-label="menu">
                         <MenuIcon/>
                     </IconButton>
                     <div>

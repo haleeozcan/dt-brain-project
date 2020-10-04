@@ -28,6 +28,7 @@ import DialogActions from "@material-ui/core/DialogActions/DialogActions";
 import AddUser from "./add-user.js";
 import AddUserGroup from "./add-user-group.js";
 import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -103,7 +104,10 @@ const useStyles = makeStyles((theme) => ({
     mainTitle: {
         color: "#323337",
         textTransform: "uppercase",
-
+    },
+    title: {
+        color: "#0083ab",
+        textTransform: "uppercase",
     },
     root: {
         '& > *': {
@@ -119,8 +123,19 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: "#001331",
         color: theme.palette.getContrastText("#001331"),
+    },
+    but: {
+        color: "#001331",
+        backgroundColor: theme.palette.getContrastText("#001331"),
+    },
+    container: {
+        height: 500,
+        minWidth: 1700,
+        backgroundColor: "#fff",
     }
+
 }));
+
 
 export default function MainPage() {
     const classes = useStyles();
@@ -144,19 +159,31 @@ export default function MainPage() {
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
+
+
     return (
         <div className={classes.root}>
-            <Typography variant="h2" className={classes.mainTitle}>Kullanıcılar </Typography>
-            <Typography variant="h5" className={classes.mainTitle}>Kullanıcılar Durum Listesi </Typography>
-            <Grid container justify="center">
-                <Grid item xs={3}>
-                    <AddUserGroup/>
+            <Container fixed className={classes.container} alignItems="stretch">
+                <Grid container justify="center" alignItems="center">
+                    <Grid item xs={6}>
+                        <Typography variant="h2" className={classes.mainTitle}>Kullanıcılar </Typography><br/>
+                        <Typography variant="h5" className={classes.title}>Kullanıcılar Durum Listesi </Typography><br/>
+                        <Grid container justify="center">
+                            <Grid item xs={3}>
+                                <AddUserGroup/>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <AddUser/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <img src="https://www.trainingzone.co.uk/sites/default/files/learning_technology_solutions_0.jpg" width="1040" height="500"/>
+                    </Grid>
                 </Grid>
-                <Grid item xs={3}>
-                    <AddUser/>
-                </Grid>
-            </Grid>
-            <Typography variant="h5" align="left" className={classes.mainTitle}>Kullanıcı Grupları </Typography>
+            </Container>
+
+            <Typography variant="h5" align="left" className={classes.title}>Kullanıcı Grupları </Typography>
             <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                     <Typography style={{fontSize: 20}}>Grup #1</Typography>
@@ -171,7 +198,6 @@ export default function MainPage() {
                                 <Typography>Oluşturulma tarihi: 01.10.2020</Typography>
                             </Grid>
                             <Grid item xs={3}>
-
                                 <Button variant="outlined" color="primary" className={classes.button}>
                                     Kullanıcı Grubunu Kaldır
                                 </Button>
@@ -195,12 +221,13 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" className={classes.button}>Kullanıcıyı
+                                                    <Button variant="outlined" color="primary"
+                                                            className={classes.button}>Kullanıcıyı
                                                         Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            onClick={handleClickOpen} className={classes.button}>
+                                                            onClick={handleClickOpen} className={classes.but}>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -233,14 +260,16 @@ export default function MainPage() {
 
                                                         </DialogContent>
                                                         <DialogActions>
-                                                            <Button onClick={handleClose} color="primary" className={classes.button}>
+                                                            <Button onClick={handleClose} color="primary"
+                                                                    className={classes.button}>
                                                                 Ekle
                                                             </Button>
                                                         </DialogActions>
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" href="/user" className={classes.button}>Kullanıcıya
+                                                    <Button variant="outlined" color="primary" href="/user"
+                                                            className={classes.button}>Kullanıcıya
                                                         Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
@@ -289,12 +318,13 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" className={classes.button}>Kullanıcıyı
+                                                    <Button variant="outlined" color="primary"
+                                                            className={classes.button}>Kullanıcıyı
                                                         Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            onClick={handleClickOpen} className={classes.button}>
+                                                            onClick={handleClickOpen} className={classes.but}>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -327,14 +357,16 @@ export default function MainPage() {
 
                                                         </DialogContent>
                                                         <DialogActions>
-                                                            <Button onClick={handleClose} color="primary" className={classes.button}>
+                                                            <Button onClick={handleClose} color="primary"
+                                                                    className={classes.button}>
                                                                 Ekle
                                                             </Button>
                                                         </DialogActions>
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" href="/user" className={classes.button}>Kullanıcıya
+                                                    <Button variant="outlined" color="primary" href="/user"
+                                                            className={classes.button}>Kullanıcıya
                                                         Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
@@ -384,12 +416,13 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" className={classes.button}>Kullanıcıyı
+                                                    <Button variant="outlined" color="primary"
+                                                            className={classes.button}>Kullanıcıyı
                                                         Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            onClick={handleClickOpen} className={classes.button}>
+                                                            onClick={handleClickOpen} className={classes.but}>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -422,14 +455,16 @@ export default function MainPage() {
 
                                                         </DialogContent>
                                                         <DialogActions>
-                                                            <Button onClick={handleClose} color="primary" className={classes.button}>
+                                                            <Button onClick={handleClose} color="primary"
+                                                                    className={classes.button}>
                                                                 Ekle
                                                             </Button>
                                                         </DialogActions>
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" href="/user" className={classes.button}>Kullanıcıya
+                                                    <Button variant="outlined" color="primary" href="/user"
+                                                            className={classes.button}>Kullanıcıya
                                                         Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>

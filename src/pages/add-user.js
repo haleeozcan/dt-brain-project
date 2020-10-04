@@ -34,8 +34,8 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     button: {
-        backgroundColor: "#001331",
-        color: theme.palette.getContrastText("#001331"),
+        color: "#001331",
+        backgroundColor: theme.palette.getContrastText("#001331"),
     },
     mainTitle: {
         color: "#323337",
