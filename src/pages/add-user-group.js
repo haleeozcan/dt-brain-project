@@ -8,6 +8,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,6 +29,14 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
+    dialog: {
+        backgroundColor: "#dcdfed"
+    },
+    button: {
+        backgroundColor: "#001331",
+        color: theme.palette.getContrastText("#001331"),
+    }
+
 }));
 
 function AddUserGroup() {
@@ -44,34 +53,36 @@ function AddUserGroup() {
 
     return (
         <div className={classes.root}>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+            <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.button}>
                 Kullanıcı Grubu Oluştur
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Kullanıcı Grubu ve Panel</DialogTitle>
-                <DialogContent>
-                    <Typography variant="h6">Kullanıcı Grubu</Typography>
-                    <form className={classes.textField} noValidate autoComplete="off">
-                        <TextField id="standard-basic" label="Kullanıcı Grup İsmi"/>
-                        <TextField id="standard-basic" label="Kullanıcı Adı"/>
-                    </form>
-                    <form className={classes.textField} noValidate autoComplete="off">
-                        <TextField id="standard-basic" label="Şifre"/>
-                    </form>
-                    <Typography variant="h6">Panel</Typography>
-                    <form className={classes.textField} noValidate autoComplete="off">
-                        <TextField id="standard-basic" label="Kullanıcı Adı"/>
-                        <TextField id="standard-basic" label="Şifre"/>
-                    </form>
-                    <form className={classes.textField} noValidate autoComplete="off">
-                        <TextField id="standard-basic" label="Email"/>
-                    </form>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} color="primary">
-                        Kullanıcı Grubu Oluştur
-                    </Button>
-                </DialogActions>
+                <Grid className={classes.dialog}>
+                    <DialogTitle className={classes.mainTitle}>Kullanıcı Grubu ve Panel</DialogTitle>
+                    <DialogContent>
+                        <Typography variant="h6">Kullanıcı Grubu</Typography>
+                        <form className={classes.textField} noValidate autoComplete="off">
+                            <TextField id="standard-basic" label="Kullanıcı Grup İsmi"/>
+                            <TextField id="standard-basic" label="Kullanıcı Adı"/>
+                        </form>
+                        <form className={classes.textField} noValidate autoComplete="off">
+                            <TextField id="standard-basic" label="Şifre"/>
+                        </form>
+                        <Typography variant="h6">Panel</Typography>
+                        <form className={classes.textField} noValidate autoComplete="off">
+                            <TextField id="standard-basic" label="Kullanıcı Adı"/>
+                            <TextField id="standard-basic" label="Şifre"/>
+                        </form>
+                        <form className={classes.textField} noValidate autoComplete="off">
+                            <TextField id="standard-basic" label="Email"/>
+                        </form>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Kullanıcı Grubu Oluştur
+                        </Button>
+                    </DialogActions>
+                </Grid>
             </Dialog>
         </div>
     );

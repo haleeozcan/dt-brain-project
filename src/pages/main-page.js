@@ -76,7 +76,7 @@ const Accordion = withStyles({
 
 const AccordionSummary = withStyles({
     root: {
-        backgroundColor: 'rgba(0, 0, 0, .03)',
+        backgroundColor: "#a0a2ac",
         borderBottom: '1px solid rgba(0, 0, 0, .125)',
         marginBottom: -1,
         minHeight: 56,
@@ -99,6 +99,10 @@ const AccordionDetails = withStyles((theme) => ({
 }))(MuiAccordionDetails);
 
 const useStyles = makeStyles((theme) => ({
+    mainTitle: {
+        color: "#001331",
+        textTransform: "uppercase"
+    },
     root: {
         '& > *': {
             margin: theme.spacing(1),
@@ -107,6 +111,13 @@ const useStyles = makeStyles((theme) => ({
     table: {
         minWidth: 700,
     },
+    groupInfo: {
+        backgroundColor: "#d1d4e1",
+    },
+    button: {
+        backgroundColor: "#001331",
+        color: theme.palette.getContrastText("#001331"),
+    }
 }));
 
 export default function MainPage() {
@@ -133,8 +144,8 @@ export default function MainPage() {
     };
     return (
         <div className={classes.root}>
-            <Typography variant="h2">Kullanıcılar </Typography>
-            <Typography variant="h5">Kullanıcılar Durum Listesi </Typography>
+            <Typography variant="h2" className={classes.mainTitle}>Kullanıcılar </Typography>
+            <Typography variant="h5" className={classes.mainTitle}>Kullanıcılar Durum Listesi </Typography>
             <Grid container justify="center">
                 <Grid item xs={3}>
                     <AddUserGroup/>
@@ -143,24 +154,23 @@ export default function MainPage() {
                     <AddUser/>
                 </Grid>
             </Grid>
-            <Typography variant="h5" align="left">Kullanıcı Grupları </Typography>
+            <Typography variant="h5" align="left" className={classes.mainTitle}>Kullanıcı Grupları </Typography>
             <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <Typography>Grup #1</Typography>
+                    <Typography style={{fontSize: 20}}>Grup #1</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Grid container justify="center" spacing={3}>
-                        <Grid container item xs={12} justify="center">
+                        <Grid container item xs={12} justify="center" className={classes.groupInfo}>
                             <Grid item xs={3}>
                                 <Typography>Grubun Adı: Grup #1</Typography>
                             </Grid>
                             <Grid item xs={3}>
-
                                 <Typography>Oluşturulma tarihi: 01.10.2020</Typography>
                             </Grid>
                             <Grid item xs={3}>
 
-                                <Button variant="outlined" color="primary">
+                                <Button variant="outlined" color="primary" className={classes.button}>
                                     Kullanıcı Grubunu Kaldır
                                 </Button>
                             </Grid>
@@ -231,10 +241,8 @@ export default function MainPage() {
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <a href="user.js">
-                                                        <button> Kullanıcıya Git</button>
-                                                    </a>
-
+                                                    <Button variant="outlined" color="primary" href="/user">Kullanıcıya
+                                                        Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         ))}
@@ -247,21 +255,19 @@ export default function MainPage() {
             </Accordion>
             <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                    <Typography>Grup #2</Typography>
+                    <Typography style={{fontSize: 20}}>Grup #2</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Grid container justify="center" spacing={3}>
-                        <Grid container item xs={12} justify="center">
+                        <Grid container item xs={12} justify="center" className={classes.groupInfo}>
                             <Grid item xs={3}>
                                 <Typography>Grubun Adı: Grup #2</Typography>
                             </Grid>
                             <Grid item xs={3}>
-
                                 <Typography>Oluşturulma tarihi: 01.10.2020</Typography>
                             </Grid>
                             <Grid item xs={3}>
-
-                                <Button variant="outlined" color="primary">
+                                <Button variant="outlined" color="primary" className={classes.button}>
                                     Kullanıcı Grubunu Kaldır
                                 </Button>
                             </Grid>
@@ -332,10 +338,8 @@ export default function MainPage() {
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <a href="user.js">
-                                                        <button> Kullanıcıya Git</button>
-                                                    </a>
-
+                                                    <Button variant="outlined" color="primary" href="/user">Kullanıcıya
+                                                        Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         ))}
@@ -348,21 +352,20 @@ export default function MainPage() {
             </Accordion>
             <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                    <Typography>Grup #3</Typography>
+                    <Typography style={{fontSize: 20}}>Grup #3</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Grid container justify="center" spacing={3}>
-                        <Grid container item xs={12} justify="center">
+                        <Grid container item xs={12} justify="center" className={classes.groupInfo}>
                             <Grid item xs={3}>
                                 <Typography>Grubun Adı: Grup #3</Typography>
                             </Grid>
                             <Grid item xs={3}>
-
                                 <Typography>Oluşturulma tarihi: 01.10.2020</Typography>
                             </Grid>
                             <Grid item xs={3}>
 
-                                <Button variant="outlined" color="primary">
+                                <Button variant="outlined" color="primary" className={classes.button}>
                                     Kullanıcı Grubunu Kaldır
                                 </Button>
                             </Grid>
@@ -433,10 +436,8 @@ export default function MainPage() {
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <a href="user.js">
-                                                        <button> Kullanıcıya Git</button>
-                                                    </a>
-
+                                                    <Button variant="outlined" color="primary" href="/user">Kullanıcıya
+                                                        Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         ))}

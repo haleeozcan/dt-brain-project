@@ -24,6 +24,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Grid from "@material-ui/core/Grid";
+import AddUserGroup from "./add-user-group";
+import AddUser from "./add-user";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -59,9 +62,7 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
         },
     },
-    table: {
-        width: 1000,
-    },
+
     formControl: {
         margin: theme.spacing(1),
         width: '25ch',
@@ -94,69 +95,78 @@ function User() {
     return (
         <div className={classes.root}>
             <Typography variant="h2">Cihazların Aktiflik Durumu </Typography>
-            <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="customized table">
-                    <TableHead>
-                        <TableRow>
-                            <StyledTableCell>Cihazların Adı</StyledTableCell>
-                            <StyledTableCell align="right">Eklenme Tarihi</StyledTableCell>
-                            <StyledTableCell align="right">En Son Aktif Olduğu Tarih</StyledTableCell>
-                            <StyledTableCell align="right">Aktiflik Durumu</StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.map((row) => (
-                            <StyledTableRow key={row.ad}>
-                                <StyledTableCell component="th" scope="row">
-                                    {row.ad}
-                                </StyledTableCell>
-                                <StyledTableCell align="right">{row.eklenmeTarihi}</StyledTableCell>
-                                <StyledTableCell align="right">{row.aktifTarih}</StyledTableCell>
-                                <StyledTableCell align="right">{row.aktiflik}</StyledTableCell>
-                            </StyledTableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <Grid container justify="center">
+                <Grid item xs={6} justify="center">
+                    <TableContainer component={Paper}>
+                        <Table className={classes.table} aria-label="customized table">
+                            <TableHead>
+                                <TableRow>
+                                    <StyledTableCell>Cihazların Adı</StyledTableCell>
+                                    <StyledTableCell align="right">Eklenme Tarihi</StyledTableCell>
+                                    <StyledTableCell align="right">En Son Aktif Olduğu Tarih</StyledTableCell>
+                                    <StyledTableCell align="right">Aktiflik Durumu</StyledTableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {rows.map((row) => (
+                                    <StyledTableRow key={row.ad}>
+                                        <StyledTableCell component="th" scope="row">
+                                            {row.ad}
+                                        </StyledTableCell>
+                                        <StyledTableCell align="right">{row.eklenmeTarihi}</StyledTableCell>
+                                        <StyledTableCell align="right">{row.aktifTarih}</StyledTableCell>
+                                        <StyledTableCell align="right">{row.aktiflik}</StyledTableCell>
+                                    </StyledTableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Grid>
+            </Grid>
             <div>
-                <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-                    Cihaz Ekle
-                </Button>
-                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">Cihaz Ekle</DialogTitle>
-                    <DialogContent>
-                        <FormControl className={classes.formControl}>
-                            <InputLabel id="demo-simple-select-label">Cihaz Türü</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={cihaz}
-                                onChange={handleChange}
-                            >
-                                <MenuItem value={10}>Cihaz #1</MenuItem>
-                                <MenuItem value={20}>Cihaz #2</MenuItem>
-                                <MenuItem value={30}>Cihaz #3</MenuItem>
-                            </Select>
-                        </FormControl>
-                        <form className={classes.textField} noValidate autoComplete="off">
-                            <TextField id="standard-basic" label="Cihaz İsmi"/>
-                        </form>
-                        <form className={classes.textField} noValidate autoComplete="off">
-                            <TextField id="standard-basic" label="ID"/>
-                            <TextField id="standard-basic" label="UID"/>
-                        </form>
-
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose} color="primary">
-                            Ekle
+                <Grid container justify="center">
+                    <Grid item xs={3}>
+                        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                            Cihaz Ekle
                         </Button>
-                    </DialogActions>
-                </Dialog>
+                        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                            <DialogTitle id="form-dialog-title">Cihaz Ekle</DialogTitle>
+                            <DialogContent>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="demo-simple-select-label">Cihaz Türü</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={cihaz}
+                                        onChange={handleChange}
+                                    >
+                                        <MenuItem value={10}>Cihaz #1</MenuItem>
+                                        <MenuItem value={20}>Cihaz #2</MenuItem>
+                                        <MenuItem value={30}>Cihaz #3</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                <form className={classes.textField} noValidate autoComplete="off">
+                                    <TextField id="standard-basic" label="Cihaz İsmi"/>
+                                </form>
+                                <form className={classes.textField} noValidate autoComplete="off">
+                                    <TextField id="standard-basic" label="ID"/>
+                                    <TextField id="standard-basic" label="UID"/>
+                                </form>
 
-                <Button variant="outlined" color="secondary">
-                    Cihaz Kaldır
-                </Button>
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose} color="primary">
+                                    Ekle
+                                </Button>
+                            </DialogActions>
+                        </Dialog> </Grid>
+                    <Grid item xs={3}>
+                        <Button variant="outlined" color="secondary">
+                            Cihaz Kaldır
+                        </Button> </Grid>
+                </Grid>
+
+
             </div>
         </div>
     );

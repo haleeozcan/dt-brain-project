@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
+    button: {
+        backgroundColor: "#001331",
+        color: theme.palette.getContrastText("#001331"),
+    }
 }));
 
 function AddUser() {
@@ -57,10 +61,10 @@ function AddUser() {
 
     return (
         <div className={classes.root}>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+            <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.button}>
                 Kullanıcı Oluştur
             </Button>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" >
                 <DialogTitle id="form-dialog-title">Kullanıcı Oluştur</DialogTitle>
                 <DialogContent>
                     <form className={classes.textField} noValidate autoComplete="off">
