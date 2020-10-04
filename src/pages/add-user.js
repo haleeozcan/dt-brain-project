@@ -36,7 +36,11 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: "#001331",
         color: theme.palette.getContrastText("#001331"),
-    }
+    },
+    mainTitle: {
+        color: "#323337",
+        textTransform: "uppercase",
+    },
 }));
 
 function AddUser() {
@@ -65,7 +69,7 @@ function AddUser() {
                 Kullanıcı Oluştur
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" >
-                <DialogTitle id="form-dialog-title">Kullanıcı Oluştur</DialogTitle>
+                <DialogTitle id="form-dialog-title"  className={classes.mainTitle}>Kullanıcı Oluştur</DialogTitle>
                 <DialogContent>
                     <form className={classes.textField} noValidate autoComplete="off">
                         <TextField id="standard-basic" label="Kullanıcı Adı"/>
@@ -85,7 +89,7 @@ function AddUser() {
                     </FormControl>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleClose} className={classes.button}>
                         Kullanıcı Oluştur
                     </Button>
                 </DialogActions>

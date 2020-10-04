@@ -29,15 +29,14 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
-    dialog: {
-        backgroundColor: "#dcdfed"
-    },
     button: {
         backgroundColor: "#001331",
         color: theme.palette.getContrastText("#001331"),
-
-    }
-
+    },
+    mainTitle: {
+        color: "#323337",
+        textTransform: "uppercase",
+    },
 }));
 
 function AddUserGroup() {
@@ -58,7 +57,7 @@ function AddUserGroup() {
                 Kullanıcı Grubu Oluştur
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <Grid className={classes.dialog}>
+                <Grid>
                     <DialogTitle className={classes.mainTitle}>Kullanıcı Grubu ve Panel</DialogTitle>
                     <DialogContent>
                         <Typography variant="h6">Kullanıcı Grubu</Typography>
@@ -79,7 +78,7 @@ function AddUserGroup() {
                         </form>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleClose} color="primary">
+                        <Button onClick={handleClose} className={classes.button}>
                             Kullanıcı Grubu Oluştur
                         </Button>
                     </DialogActions>

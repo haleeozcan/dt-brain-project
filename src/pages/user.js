@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.getContrastText("#001331"),
     },
     mainTitle: {
-        color: "#001331",
+        color: "#323337",
     },
 }));
 

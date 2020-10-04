@@ -101,8 +101,9 @@ const AccordionDetails = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
     mainTitle: {
-        color: "#001331",
-        textTransform: "uppercase"
+        color: "#323337",
+        textTransform: "uppercase",
+
     },
     root: {
         '& > *': {
