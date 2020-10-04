@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: "#001331",
         color: theme.palette.getContrastText("#001331"),
+
     }
 
 }));
@@ -53,7 +54,7 @@ function AddUserGroup() {
 
     return (
         <div className={classes.root}>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.button}>
+            <Button  size="large" variant="outlined" onClick={handleClickOpen} className={classes.button}>
                 Kullanıcı Grubu Oluştur
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">

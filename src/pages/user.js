@@ -30,11 +30,12 @@ import AddUser from "./add-user";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
+        backgroundColor: "#323337",
+        color: "#fff",
+        fontSize: 18
     },
     body: {
-        fontSize: 14,
+        fontSize: 15,
     },
 }))(TableCell);
 
@@ -62,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
         },
     },
-
     formControl: {
         margin: theme.spacing(1),
         width: '25ch',
@@ -72,6 +72,13 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
             width: '25ch',
         },
+    },
+    button: {
+        backgroundColor: "#001331",
+        color: theme.palette.getContrastText("#001331"),
+    },
+    mainTitle: {
+        color: "#001331",
     },
 }));
 
@@ -94,7 +101,7 @@ function User() {
 
     return (
         <div className={classes.root}>
-            <Typography variant="h2">Cihazların Aktiflik Durumu </Typography>
+            <Typography variant="h2" className={classes.mainTitle}>CİHAZLARIN AKTİFLİK DURUMU </Typography>
             <Grid container justify="center">
                 <Grid item xs={6} justify="center">
                     <TableContainer component={Paper}>
@@ -126,7 +133,7 @@ function User() {
             <div>
                 <Grid container justify="center">
                     <Grid item xs={3}>
-                        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                        <Button variant="outlined" onClick={handleClickOpen} className={classes.button}>
                             Cihaz Ekle
                         </Button>
                         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -161,7 +168,7 @@ function User() {
                             </DialogActions>
                         </Dialog> </Grid>
                     <Grid item xs={3}>
-                        <Button variant="outlined" color="secondary">
+                        <Button variant="outlined" className={classes.button}>
                             Cihaz Kaldır
                         </Button> </Grid>
                 </Grid>

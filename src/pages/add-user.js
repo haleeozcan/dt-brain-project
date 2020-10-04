@@ -61,7 +61,7 @@ function AddUser() {
 
     return (
         <div className={classes.root}>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.button}>
+            <Button variant="outlined" size="large" onClick={handleClickOpen} className={classes.button}>
                 Kullanıcı Oluştur
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" >

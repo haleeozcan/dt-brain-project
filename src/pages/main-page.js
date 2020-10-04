@@ -31,11 +31,12 @@ import Grid from "@material-ui/core/Grid";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-        backgroundColor: theme.palette.common.white,
-        color: theme.palette.common.black,
+        backgroundColor: "#323337",
+        color: "#fff",
+        fontSize: 18
     },
     body: {
-        fontSize: 14,
+        fontSize: 15,
     },
 }))(TableCell);
 
@@ -183,9 +184,6 @@ export default function MainPage() {
                                         <TableRow>
                                             <StyledTableCell>Kullanıcı Adı</StyledTableCell>
                                             <StyledTableCell align="right">Oluşturulma Tarihi</StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -196,12 +194,12 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary">Kullanıcıyı
+                                                    <Button variant="outlined" color="primary" className={classes.button}>Kullanıcıyı
                                                         Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            onClick={handleClickOpen}>
+                                                            onClick={handleClickOpen} className={classes.button}>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -234,14 +232,14 @@ export default function MainPage() {
 
                                                         </DialogContent>
                                                         <DialogActions>
-                                                            <Button onClick={handleClose} color="primary">
+                                                            <Button onClick={handleClose} color="primary" className={classes.button}>
                                                                 Ekle
                                                             </Button>
                                                         </DialogActions>
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" href="/user">Kullanıcıya
+                                                    <Button variant="outlined" color="primary" href="/user" className={classes.button}>Kullanıcıya
                                                         Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
@@ -280,9 +278,6 @@ export default function MainPage() {
                                         <TableRow>
                                             <StyledTableCell>Kullanıcı Adı</StyledTableCell>
                                             <StyledTableCell align="right">Oluşturulma Tarihi</StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -293,12 +288,12 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary">Kullanıcıyı
+                                                    <Button variant="outlined" color="primary" className={classes.button}>Kullanıcıyı
                                                         Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            onClick={handleClickOpen}>
+                                                            onClick={handleClickOpen} className={classes.button}>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -331,14 +326,14 @@ export default function MainPage() {
 
                                                         </DialogContent>
                                                         <DialogActions>
-                                                            <Button onClick={handleClose} color="primary">
+                                                            <Button onClick={handleClose} color="primary" className={classes.button}>
                                                                 Ekle
                                                             </Button>
                                                         </DialogActions>
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" href="/user">Kullanıcıya
+                                                    <Button variant="outlined" color="primary" href="/user" className={classes.button}>Kullanıcıya
                                                         Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
@@ -378,9 +373,6 @@ export default function MainPage() {
                                         <TableRow>
                                             <StyledTableCell>Kullanıcı Adı</StyledTableCell>
                                             <StyledTableCell align="right">Oluşturulma Tarihi</StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -391,12 +383,12 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary">Kullanıcıyı
+                                                    <Button variant="outlined" color="primary" className={classes.button}>Kullanıcıyı
                                                         Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            onClick={handleClickOpen}>
+                                                            onClick={handleClickOpen} className={classes.button}>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -429,14 +421,14 @@ export default function MainPage() {
 
                                                         </DialogContent>
                                                         <DialogActions>
-                                                            <Button onClick={handleClose} color="primary">
+                                                            <Button onClick={handleClose} color="primary" className={classes.button}>
                                                                 Ekle
                                                             </Button>
                                                         </DialogActions>
                                                     </Dialog>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
-                                                    <Button variant="outlined" color="primary" href="/user">Kullanıcıya
+                                                    <Button variant="outlined" color="primary" href="/user" className={classes.button}>Kullanıcıya
                                                         Git</Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
@@ -448,7 +440,6 @@ export default function MainPage() {
                     </Grid>
                 </AccordionDetails>
             </Accordion>
-
         </div>
     );
 }
