@@ -132,6 +132,16 @@ const useStyles = makeStyles((theme) => ({
         height: 500,
         minWidth: 1700,
         backgroundColor: "#fff",
+    },
+    formControl: {
+        margin: theme.spacing(1),
+        width: '25ch',
+    },
+    textField: {
+        '& > *': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        },
     }
 
 }));

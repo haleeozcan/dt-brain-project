@@ -41,6 +41,10 @@ const useStyles = makeStyles((theme) => ({
         color: "#323337",
         textTransform: "uppercase",
     },
+    but: {
+        backgroundColor: "#001331",
+        color: theme.palette.getContrastText("#001331"),
+    },
 }));
 
 function AddUser() {
@@ -59,9 +63,6 @@ function AddUser() {
     const handleClose = () => {
         setOpen(false);
     };
-
-
-
 
     return (
         <div className={classes.root}>
@@ -89,7 +90,7 @@ function AddUser() {
                     </FormControl>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} className={classes.button}>
+                    <Button onClick={handleClose} className={classes.but}>
                         Kullanıcı Oluştur
                     </Button>
                 </DialogActions>
