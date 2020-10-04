@@ -11,6 +11,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -96,6 +97,7 @@ export default function MenuAppBar() {
                         <MenuItem onClick={handleOnClose}>My account</MenuItem>
                         <MenuItem onClick={handleOnClose}>Logout</MenuItem>
                     </Menu>
+                    <Avatar>H</Avatar>
                 </Toolbar>
             </AppBar>
         </div>
