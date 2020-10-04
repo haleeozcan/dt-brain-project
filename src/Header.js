@@ -12,16 +12,20 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import Avatar from "@material-ui/core/Avatar";
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
     },
     menuButton: {
         marginRight: theme.spacing(2),
     },
     title: {
+        flexGrow: 1,
+    },
+    grow: {
         flexGrow: 1,
     },
 }));
@@ -67,23 +71,20 @@ export default function MenuAppBar() {
                     </IconButton>
                     <div>
                         <Menu
-                            id="menu-appbar"
+                            id="simple-menu"
                             anchorEl={anchorEl}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
                             keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={open}
+                            open={Boolean(anchor)}
                             onClose={handleClose}
                         >
-                            <MenuItem onClick={handleClose}></MenuItem>
+                            <MenuItem onClick={handleClose}>Kullanıcı Listesi</MenuItem>
                         </Menu>
                     </div>
+                    <div className={classes.grow} />
+                    <Avatar>H</Avatar>
+                    <IconButton edge="end" aria-label="menu">
+                        <SettingsIcon/>
+                    </IconButton>
                     <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleOnClick}>
                         Dil
                     </Button>
@@ -94,11 +95,10 @@ export default function MenuAppBar() {
                         open={Boolean(anchor)}
                         onClose={handleOnClose}
                     >
-                        <MenuItem onClick={handleOnClose}>Profile</MenuItem>
-                        <MenuItem onClick={handleOnClose}>My account</MenuItem>
-                        <MenuItem onClick={handleOnClose}>Logout</MenuItem>
+                        <MenuItem onClick={handleOnClose}>Türkçe</MenuItem>
+                        <MenuItem onClick={handleOnClose}>İngilizce</MenuItem>
+                        <MenuItem onClick={handleOnClose}>Almanca</MenuItem>
                     </Menu>
-                    <Avatar>H</Avatar>
                 </Toolbar>
             </AppBar>
         </div>

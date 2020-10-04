@@ -27,6 +27,7 @@ import Select from '@material-ui/core/Select';
 import Grid from "@material-ui/core/Grid";
 import AddUserGroup from "./add-user-group";
 import AddUser from "./add-user";
+import Container from "@material-ui/core/Container";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -76,6 +77,10 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: "#001331",
         color: theme.palette.getContrastText("#001331"),
+    },
+    but: {
+        color: "#001331",
+        backgroundColor: theme.palette.getContrastText("#001331"),
     },
     mainTitle: {
         color: "#323337",
@@ -131,9 +136,10 @@ function User() {
                 </Grid>
             </Grid>
             <div>
+                <br/>
                 <Grid container justify="center">
                     <Grid item xs={3}>
-                        <Button variant="outlined" onClick={handleClickOpen} className={classes.button}>
+                        <Button variant="outlined" size="large" onClick={handleClickOpen} className={classes.button}>
                             Cihaz Ekle
                         </Button>
                         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -168,12 +174,12 @@ function User() {
                             </DialogActions>
                         </Dialog> </Grid>
                     <Grid item xs={3}>
-                        <Button variant="outlined" className={classes.button}>
+                        <Button variant="outlined" size="large" className={classes.but}>
                             Cihaz Kaldır
-                        </Button> </Grid>
+                        </Button>
+                    </Grid>
                 </Grid>
-
-
+                <br/>
             </div>
         </div>
     );
