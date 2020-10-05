@@ -212,7 +212,7 @@ export default function MainPage() {
                         </Grid>
                     </Grid>
                     <Grid item xs={6}>
-                        <img src="https://www.trainingzone.co.uk/sites/default/files/learning_technology_solutions_0.jpg" className={classes.photo}/>
+                        <img src="https://www.trainingzone.co.uk/sites/default/files/learning_technology_solutions_0.jpg" alt="" className={classes.photo}/>
                     </Grid>
                 </Grid>
             </Container>

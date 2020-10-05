@@ -1,8 +1,5 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../App.css';
-import Header from '../Header.js';
-import MainPage from "./main-page";
 import Typography from "@material-ui/core/Typography";
 import {withStyles, makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -17,7 +14,6 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
