@@ -13,6 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,6 +37,8 @@ const useStyles = makeStyles((theme) => ({
     button: {
         color: "#001331",
         backgroundColor: theme.palette.getContrastText("#001331"),
+        height: 95,
+        width: 190
     },
     mainTitle: {
         color: "#323337",
@@ -67,6 +70,7 @@ function AddUser() {
     return (
         <div className={classes.root}>
             <Button variant="outlined" size="large" onClick={handleClickOpen} className={classes.button}>
+                <PersonAddIcon/>
                 Kullanıcı Oluştur
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" >

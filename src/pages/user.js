@@ -28,10 +28,13 @@ import Grid from "@material-ui/core/Grid";
 import AddUserGroup from "./add-user-group";
 import AddUser from "./add-user";
 import Container from "@material-ui/core/Container";
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
         backgroundColor: "#323337",
+        opacity: 0.8,
         color: "#fff",
         fontSize: 18
     },
@@ -140,6 +143,7 @@ function User() {
                 <Grid container justify="center">
                     <Grid item xs={3}>
                         <Button variant="outlined" size="large" onClick={handleClickOpen} className={classes.button}>
+                            <AddCircleIcon/>
                             Cihaz Ekle
                         </Button>
                         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -175,6 +179,7 @@ function User() {
                         </Dialog> </Grid>
                     <Grid item xs={3}>
                         <Button variant="outlined" size="large" className={classes.but}>
+                            <DeleteIcon/>
                             Cihaz Kaldır
                         </Button>
                     </Grid>

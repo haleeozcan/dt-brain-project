@@ -17,10 +17,10 @@ import SettingsIcon from '@material-ui/icons/Settings';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        backgroundColor: "#fff",
-    },
+        backgroundColor: "#201c48",
+},
     menuButton: {
-        marginRight: theme.spacing(2),
+        color: "#fff",
     },
     title: {
         flexGrow: 1,
@@ -82,10 +82,10 @@ export default function MenuAppBar() {
                     </div>
                     <div className={classes.grow} />
                     <Avatar>H</Avatar>
-                    <IconButton edge="end" aria-label="menu">
+                    <IconButton edge="end" aria-label="menu" className={classes.menuButton}>
                         <SettingsIcon/>
                     </IconButton>
-                    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleOnClick}>
+                    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleOnClick} className={classes.menuButton}>
                         Dil
                     </Button>
                     <Menu

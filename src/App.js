@@ -11,7 +11,7 @@ function App() {
       <Router>
           <div className="App">
               <Header />
-              <div className="container">
+              <div classNlame="container">
                   <Switch>
                       <Route path="/" exact component={MainPage} />
                       <Route path="/user" exact component={User} />

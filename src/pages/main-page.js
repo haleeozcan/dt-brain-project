@@ -29,10 +29,15 @@ import AddUser from "./add-user.js";
 import AddUserGroup from "./add-user-group.js";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import GroupIcon from '@material-ui/icons/Group';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
         backgroundColor: "#323337",
+        opacity: 0.8,
         color: "#fff",
         fontSize: 18
     },
@@ -79,6 +84,7 @@ const Accordion = withStyles({
 const AccordionSummary = withStyles({
     root: {
         backgroundColor: "#a0a2ac",
+        opacity: 0.8,
         borderBottom: '1px solid rgba(0, 0, 0, .125)',
         marginBottom: -1,
         minHeight: 56,
@@ -131,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
     container: {
         height: 500,
         minWidth: 1700,
-        backgroundColor: "#fff",
+        backgroundColor: "#fdffff",
     },
     formControl: {
         margin: theme.spacing(1),
@@ -142,6 +148,11 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
             width: '25ch',
         },
+    },
+    photo: {
+        width:1040,
+        height:500,
+        opacity: 0.90
     }
 
 }));
@@ -149,7 +160,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainPage() {
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState('panel1');
+    const [expanded, setExpanded] = React.useState('');
     const [open, setOpen] = React.useState(false);
     const [cihaz, setCihaz] = React.useState('');
 
@@ -178,7 +189,7 @@ export default function MainPage() {
                     <Grid item xs={6}>
                         <Typography variant="h2" className={classes.mainTitle}>Kullanıcılar </Typography><br/>
                         <Typography variant="h5" className={classes.title}>Kullanıcılar Durum Listesi </Typography><br/>
-                        <Grid container justify="center">
+                        <Grid container justify="center" spacing={4}>
                             <Grid item xs={3}>
                                 <AddUserGroup/>
                             </Grid>
@@ -188,19 +199,20 @@ export default function MainPage() {
                         </Grid>
                     </Grid>
                     <Grid item xs={6}>
-                        <img src="https://www.trainingzone.co.uk/sites/default/files/learning_technology_solutions_0.jpg" width="1040" height="500"/>
+                        <img src="https://www.trainingzone.co.uk/sites/default/files/learning_technology_solutions_0.jpg" className={classes.photo}/>
                     </Grid>
                 </Grid>
             </Container>
-
             <Typography variant="h5" align="left" className={classes.title}>Kullanıcı Grupları </Typography>
+
             <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <Typography style={{fontSize: 20}}>Grup #1</Typography>
+                    <Typography style={{fontSize: 20}}> Grup #1</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Grid container justify="center" spacing={3}>
                         <Grid container item xs={12} justify="center" className={classes.groupInfo}>
+                            <GroupIcon/>
                             <Grid item xs={3}>
                                 <Typography>Grubun Adı: Grup #1</Typography>
                             </Grid>
@@ -209,6 +221,7 @@ export default function MainPage() {
                             </Grid>
                             <Grid item xs={3}>
                                 <Button variant="outlined" color="primary" className={classes.button}>
+                                    <DeleteIcon/>
                                     Kullanıcı Grubunu Kaldır
                                 </Button>
                             </Grid>
@@ -232,12 +245,14 @@ export default function MainPage() {
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            className={classes.button}>Kullanıcıyı
+                                                            className={classes.button}><DeleteIcon/>
+                                                        Kullanıcıyı
                                                         Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
                                                             onClick={handleClickOpen} className={classes.but}>
+                                                        <AssignmentIndIcon/>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -279,8 +294,8 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary" href="/user"
-                                                            className={classes.button}>Kullanıcıya
-                                                        Git</Button>
+                                                            className={classes.button}>
+                                                        Kullanıcıya Git<ChevronRightIcon/></Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         ))}
@@ -298,6 +313,7 @@ export default function MainPage() {
                 <AccordionDetails>
                     <Grid container justify="center" spacing={3}>
                         <Grid container item xs={12} justify="center" className={classes.groupInfo}>
+                            <GroupIcon/>
                             <Grid item xs={3}>
                                 <Typography>Grubun Adı: Grup #2</Typography>
                             </Grid>
@@ -306,6 +322,7 @@ export default function MainPage() {
                             </Grid>
                             <Grid item xs={3}>
                                 <Button variant="outlined" color="primary" className={classes.button}>
+                                    <DeleteIcon/>
                                     Kullanıcı Grubunu Kaldır
                                 </Button>
                             </Grid>
@@ -329,12 +346,13 @@ export default function MainPage() {
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            className={classes.button}>Kullanıcıyı
-                                                        Kaldır</Button>
+                                                            className={classes.button}><DeleteIcon/>
+                                                        Kullanıcıyı Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
                                                             onClick={handleClickOpen} className={classes.but}>
+                                                        <AssignmentIndIcon/>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -376,8 +394,7 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary" href="/user"
-                                                            className={classes.button}>Kullanıcıya
-                                                        Git</Button>
+                                                            className={classes.button}>Kullanıcıya Git<ChevronRightIcon/></Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         ))}
@@ -395,6 +412,7 @@ export default function MainPage() {
                 <AccordionDetails>
                     <Grid container justify="center" spacing={3}>
                         <Grid container item xs={12} justify="center" className={classes.groupInfo}>
+                            <GroupIcon/>
                             <Grid item xs={3}>
                                 <Typography>Grubun Adı: Grup #3</Typography>
                             </Grid>
@@ -402,8 +420,8 @@ export default function MainPage() {
                                 <Typography>Oluşturulma tarihi: 01.10.2020</Typography>
                             </Grid>
                             <Grid item xs={3}>
-
                                 <Button variant="outlined" color="primary" className={classes.button}>
+                                    <DeleteIcon/>
                                     Kullanıcı Grubunu Kaldır
                                 </Button>
                             </Grid>
@@ -427,12 +445,14 @@ export default function MainPage() {
                                                 <StyledTableCell align="right">{row.tarih}</StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
-                                                            className={classes.button}>Kullanıcıyı
-                                                        Kaldır</Button>
+                                                            className={classes.button}>
+                                                        <DeleteIcon/>
+                                                        Kullanıcıyı Kaldır</Button>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary"
                                                             onClick={handleClickOpen} className={classes.but}>
+                                                        <AssignmentIndIcon/>
                                                         Kullanıcı Durumu
                                                     </Button>
                                                     <Dialog open={open} onClose={handleClose}
@@ -474,8 +494,8 @@ export default function MainPage() {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="right">
                                                     <Button variant="outlined" color="primary" href="/user"
-                                                            className={classes.button}>Kullanıcıya
-                                                        Git</Button>
+                                                            className={classes.button}>
+                                                        Kullanıcıya Git<ChevronRightIcon/></Button>
                                                 </StyledTableCell>
                                             </StyledTableRow>
                                         ))}

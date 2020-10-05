@@ -9,6 +9,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: "#001331",
         color: theme.palette.getContrastText("#001331"),
+        height: 95,
+        width: 190
     },
     mainTitle: {
         color: "#323337",
@@ -54,6 +57,7 @@ function AddUserGroup() {
     return (
         <div className={classes.root}>
             <Button  size="large" variant="outlined" onClick={handleClickOpen} className={classes.button}>
+                <GroupAddIcon/>
                 Kullanıcı Grubu Oluştur
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
