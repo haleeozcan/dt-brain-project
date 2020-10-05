@@ -112,10 +112,18 @@ const useStyles = makeStyles((theme) => ({
     mainTitle: {
         color: "#323337",
         textTransform: "uppercase",
+        fontSize: 50,
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 20,
+        },
     },
     title: {
         color: "#0083ab",
         textTransform: "uppercase",
+        fontSize: 30,
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 15,
+        },
     },
     root: {
         '& > *': {
@@ -131,6 +139,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: "#001331",
         color: theme.palette.getContrastText("#001331"),
+
     },
     but: {
         color: "#001331",
@@ -138,24 +147,29 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
         height: 500,
-        minWidth: 1700,
+        maxWidth: "100%",
+            opacity: 0.90,
         backgroundColor: "#fdffff",
     },
     formControl: {
         margin: theme.spacing(1),
-        width: '25ch',
+        width: '25%',
     },
     textField: {
         '& > *': {
             margin: theme.spacing(1),
-            width: '25ch',
+            width: '25%',
         },
     },
     photo: {
-        width:1040,
+        maxWidth: "100%",
         height:500,
         opacity: 0.90
-    }
+    },
+    grid: {
+        maxWidth: "100%",
+        height:"100%",
+    },
 
 }));
 
@@ -186,12 +200,12 @@ export default function MainPage() {
 
     return (
         <div className={classes.root}>
-            <Container fixed className={classes.container}>
-                <Grid container justify="center" alignItems="center">
-                    <Grid item xs={6}>
-                        <Typography variant="h2" className={classes.mainTitle}>Kullanıcılar </Typography><br/>
-                        <Typography variant="h5" className={classes.title}>Kullanıcılar Durum Listesi </Typography><br/>
-                        <Grid container justify="center" spacing={4}>
+            <Container maxWidth="lg" className={classes.container}>
+                <Grid container justify="center" alignItems="center" className={classes.grid}>
+                    <Grid item xs={6} >
+                        <Typography className={classes.mainTitle}>Kullanıcılar </Typography><br/>
+                        <Typography className={classes.title}>Kullanıcılar Durum Listesi </Typography><br/>
+                        <Grid container justify="center" spacing={6}>
                             <Grid item xs={3}>
                                 <AddUserGroup/>
                             </Grid>

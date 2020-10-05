@@ -28,13 +28,29 @@ const useStyles = makeStyles((theme) => ({
         '& > *': {
             margin: theme.spacing(1),
             width: '25ch',
-        },
+        }
     },
     button: {
         backgroundColor: "#001331",
         color: theme.palette.getContrastText("#001331"),
-        height: 95,
-        width: 190
+        height: "100%",
+        [theme.breakpoints.down("sm")]: {
+            height: "80%",
+        },
+        width: "100%",
+        [theme.breakpoints.down("sm")]: {
+            width: "80%",
+        },
+        fontSize: 20,
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 8,
+        },
+        [theme.breakpoints.down("md")]: {
+            fontSize: 13,
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 8,
+        },
     },
     mainTitle: {
         color: "#323337",
