@@ -102,7 +102,7 @@ function Password() {
                 </Grid>
             </Dialog>
             <Grid item xs={3}>
-                <Button variant="outlined" onClick={handleClickOpen} className={classes.button}>
+                <Button variant="outlined" className={classes.button}>
                   < AccountBoxIcon/>
                     Bu Hesapla Giriş Yap
                 </Button>
