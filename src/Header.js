@@ -2,12 +2,8 @@ import React from 'react';
 import {makeStyles, useTheme} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
@@ -17,8 +13,6 @@ import clsx from "clsx";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Drawer from "@material-ui/core/Drawer/Drawer";
@@ -32,8 +26,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         backgroundColor: "#B2EBF2",
-        opacity: 0.9
-},
+    },
     menuButton: {
         color: "#101012",
     },
@@ -57,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(0, 1),
-        // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
     },
@@ -65,16 +57,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuAppBar() {
     const [anchor, setAnchor] = React.useState(null);
-    const [opens, setOpen] = React.useState(false);
+    const [opens, setOpens] = React.useState(false);
 
     const handleDrawerOpen = () => {
-        setOpen(true);
+        setOpens(true);
     };
 
     const handleDrawerClose = () => {
-        setOpen(false);
+        setOpens(false);
     };
-
 
     const handleOnClick = (event) => {
         setAnchor(event.currentTarget);
@@ -84,28 +75,9 @@ export default function MenuAppBar() {
         setAnchor(null);
     };
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
     const classes = useStyles();
-    const [auth, setAuth] = React.useState(true);
-    const [anchorEl, setAnchorEl] = React.useState(null);
     const theme = useTheme();
 
-    const open = Boolean(anchorEl);
-
-    const handleChange = (event) => {
-        setAuth(event.target.checked);
-    };
-
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     return (
         <div className={classes.root}>
@@ -166,8 +138,8 @@ export default function MenuAppBar() {
                     <Divider/>
                     <ListItem>
                         <ListItemIcon><PeopleIcon/></ListItemIcon>
-                            <ListItemText>Kullanıcı Listesi</ListItemText>
-                        </ListItem>
+                        <ListItemText>Kullanıcı Listesi</ListItemText>
+                    </ListItem>
                 </List>
 
             </Drawer>

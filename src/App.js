@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Header from './Header.js';
-import Deneme from './deneme.js';
 import Footer from './Footer.js';
 import User from './pages/user.js';
 import MainPage from "./pages/main-page";
