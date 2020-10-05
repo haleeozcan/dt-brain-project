@@ -30,6 +30,7 @@ import AddUser from "./add-user";
 import Container from "@material-ui/core/Container";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -130,7 +131,7 @@ function User() {
                                         </StyledTableCell>
                                         <StyledTableCell align="right">{row.eklenmeTarihi}</StyledTableCell>
                                         <StyledTableCell align="right">{row.aktifTarih}</StyledTableCell>
-                                        <StyledTableCell align="right">{row.aktiflik}</StyledTableCell>
+                                        <StyledTableCell align="right"><FiberManualRecordIcon style= {{color: row.aktiflik ==="Aktif" ?  "red" : row.aktiflik === "İnaktif" ? "yellow" :  "green"}}/></StyledTableCell>
                                     </StyledTableRow>
                                 ))}
                             </TableBody>
@@ -172,7 +173,7 @@ function User() {
 
                             </DialogContent>
                             <DialogActions>
-                                <Button onClick={handleClose} color="primary">
+                                <Button onClick={handleClose} className={classes.button}>
                                     Ekle
                                 </Button>
                             </DialogActions>

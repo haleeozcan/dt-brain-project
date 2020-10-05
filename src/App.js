@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './Header.js';
+import Deneme from './deneme.js';
 import Footer from './Footer.js';
 import User from './pages/user.js';
 import MainPage from "./pages/main-page";
@@ -11,7 +12,7 @@ function App() {
       <Router>
           <div className="App">
               <Header />
-              <div classNlame="container">
+              <div className="container">
                   <Switch>
                       <Route path="/" exact component={MainPage} />
                       <Route path="/user" exact component={User} />

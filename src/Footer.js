@@ -17,11 +17,12 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        backgroundColor: "#201c48",
+        backgroundColor: "#B2EBF2",
+        opacity: 0.9
     },
 
     title: {
-        color: "#fdffff"
+        color: "#101012"
     },
     grow: {
         flexGrow: 1,

@@ -26,6 +26,7 @@ import Select from "@material-ui/core/Select/Select";
 import TextField from "@material-ui/core/TextField/TextField";
 import DialogActions from "@material-ui/core/DialogActions/DialogActions";
 import AddUser from "./add-user.js";
+import Password from "./password.js";
 import AddUserGroup from "./add-user-group.js";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -33,6 +34,7 @@ import GroupIcon from '@material-ui/icons/Group';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -184,7 +186,7 @@ export default function MainPage() {
 
     return (
         <div className={classes.root}>
-            <Container fixed className={classes.container} alignItems="stretch">
+            <Container fixed className={classes.container}>
                 <Grid container justify="center" alignItems="center">
                     <Grid item xs={6}>
                         <Typography variant="h2" className={classes.mainTitle}>Kullanıcılar </Typography><br/>
@@ -204,7 +206,6 @@ export default function MainPage() {
                 </Grid>
             </Container>
             <Typography variant="h5" align="left" className={classes.title}>Kullanıcı Grupları </Typography>
-
             <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                     <Typography style={{fontSize: 20}}> Grup #1</Typography>
@@ -303,6 +304,7 @@ export default function MainPage() {
                                 </Table>
                             </TableContainer>
                         </Grid>
+                        <Password/>
                     </Grid>
                 </AccordionDetails>
             </Accordion>
@@ -402,6 +404,7 @@ export default function MainPage() {
                                 </Table>
                             </TableContainer>
                         </Grid>
+                        <Password/>
                     </Grid>
                 </AccordionDetails>
             </Accordion>
@@ -503,6 +506,7 @@ export default function MainPage() {
                                 </Table>
                             </TableContainer>
                         </Grid>
+                        <Password/>
                     </Grid>
                 </AccordionDetails>
             </Accordion>
